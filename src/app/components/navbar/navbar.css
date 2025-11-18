@@ -1,0 +1,54 @@
+/* src/app/components/navbar/navbar.component.css */
+
+.main-nav {
+  position: fixed; /* Barra de navegación fija en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1a1a2a; /* Fondo muy oscuro, casi negro */
+  border-bottom: 4px solid #ff9900; /* Borde naranja simulando la división pixelada */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9900; /* Logo en el color del gatito */
+  letter-spacing: 2px;
+}
+
+/* Puedes añadir una imagen del gatito aquí */
+.logo span {
+  margin-left: 10px;
+}
+
+.main-nav ul {
+  list-style: none; /* Quita los puntos de la lista */
+  display: flex;
+}
+
+.main-nav ul li {
+  margin-left: 20px;
+}
+
+.main-nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 10px; /* Área de clic más grande */
+  transition: color 0.1s;
+  /* Efecto de 'botón' simple */
+  border-bottom: 4px solid transparent; 
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+  color: #ff9900; /* Color naranja al pasar el ratón o estar activo */
+  border-bottom: 4px solid #ff9900; /* Línea de color naranja para la pestaña activa */
+}

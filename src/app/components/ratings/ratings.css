@@ -1,0 +1,126 @@
+.form-group label {
+  font-family: 'VT323', Courier, monospace !important;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffc72c; /* Mantenemos el dorado de las etiquetas */
+}
+
+select,
+textarea {
+  font-family: 'VT323', Courier, monospace !important;
+  font-size: 1.4em;
+  color: #fff;
+  padding: 10px;
+  /* Hereda los bordes de pixel-panel de global.css */
+}
+
+.error-message {
+  font-family: 'VT323', Courier, monospace !important;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.file-button {
+  font-family: 'Press Start 2P', monospace;
+  color: #6FA4AF; /* Tu color azul */
+}
+.ratings-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.ratings-container h1 {
+  color: #ff9900;
+  margin-bottom: 30px;
+}
+
+.form-panel {
+  max-width: 600px;
+  margin: 0 auto; /* Centra el panel */
+  text-align: left; /* Alinea el texto del formulario a la izquierda */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ffc72c; /* Color dorado para las etiquetas */
+}
+
+/* Estilos de inputs y textarea */
+select, textarea {
+  width: 100%;
+  padding: 8px;
+  /* Heredan los estilos pixel de styles.css */
+  box-sizing: border-box;
+}
+
+/* --- ESTRELLAS --- */
+.rating-stars-group .stars-wrapper {
+  font-size: 36px;
+  cursor: pointer;
+  letter-spacing: 5px;
+  user-select: none; /* Evita que se seleccione el texto */
+}
+
+.star {
+  /* La lógica de color se maneja en TypeScript con [style.color] */
+  transition: color 0.1s;
+}
+
+/* --- MANEJO DE ARCHIVOS --- */
+
+.file-upload-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-button {
+  padding: 5px 10px;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.file-name {
+  color: #ccc;
+  font-size: 0.9em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.audio-button.recording {
+  background-color: #c70000; /* Rojo para indicar grabación */
+  border-color: #ff9900;
+  color: #fff;
+}
+
+.audio-success {
+    color: #00ff00; /* Verde para éxito en audio */
+    font-weight: bold;
+}
+
+/* --- ERRORES --- */
+.error-message {
+  color: #ff4d4d; /* Rojo brillante para errores */
+  font-size: 0.8em;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.submit-group {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-button {
+  width: 100%;
+  font-size: 1.2em;
+}

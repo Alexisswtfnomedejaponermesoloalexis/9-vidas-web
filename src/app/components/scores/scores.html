@@ -1,0 +1,26 @@
+<div class="scores-container">
+  <h1>MARCADORES DE LEYENDA (9 VIDAS)</h1>
+  
+  <div class="leaderboard-panel">
+    <table>
+      <thead>
+        <tr>
+          <th>RANK</th>
+          <th>NOMBRE</th>
+          <th>PUNTAJE</th>
+          <th>TIEMPO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let score of scores" [ngClass]="{'top-rank': score.rank <= 3}">
+          <td class="rank-column">{{ score.rank }}</td>
+          <td class="name-column">{{ score.name }}</td>
+          <td class="score-column">{{ score.score | number }}</td>
+          <td class="time-column">{{ score.time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="data-source-note">Datos de muestra. Próximamente: Conexión en tiempo real con la base de datos del juego.</p>
+</div>

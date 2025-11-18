@@ -1,0 +1,65 @@
+<div class="contact-container">
+  <h1>CONTACTO Y REPORTE DE ERRORES</h1>
+
+  <div class="pixel-panel form-panel">
+    <p class="intro-text">
+      ¿Encontraste un bug, un problema o tienes una sugerencia? Usa el formulario a continuación. Nuestro equipo de soporte te contactará lo antes posible.
+    </p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name">Tu Nombre</label>
+        <input 
+          id="name" 
+          type="text" 
+          formControlName="name" 
+          placeholder="Ej: Naranjoso Pixel"
+        >
+        <div *ngIf="isInvalid('name')" class="error-message">
+          El nombre es obligatorio.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Tu Correo Electrónico (para la respuesta)</label>
+        <input 
+          id="email" 
+          type="email" 
+          formControlName="email" 
+          placeholder="ejemplo@dominio.com"
+        >
+        <div *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched" class="error-message">
+          El correo electrónico es obligatorio.
+        </div>
+        <div *ngIf="contactForm.get('email')?.hasError('email')" class="error-message">
+          Introduce un formato de correo electrónico válido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="problem">Detalle del Problema / Bug Reporte</label>
+        <textarea 
+          id="problem" 
+          formControlName="problem" 
+          rows="6" 
+          placeholder="Describe el error, qué pasó, cuándo y cómo se puede replicar..."
+        ></textarea>
+        <div *ngIf="isInvalid('problem')" class="error-message">
+          Se requiere una descripción detallada (mínimo 20 caracteres).
+        </div>
+      </div>
+
+      <div class="submit-group">
+        <button 
+          type="submit" 
+          class="pixel-button submit-button" 
+          [disabled]="contactForm.invalid || isSubmitting"
+        >
+          {{ isSubmitting ? 'ENVIANDO...' : 'ENVIAR REPORTE' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

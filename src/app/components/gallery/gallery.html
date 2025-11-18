@@ -1,0 +1,31 @@
+<div class="gallery-container">
+  <h1>Galería de Lore y Personajes de 9 VIDAS</h1>
+
+  <div class="cards-grid">
+    
+    <div *ngFor="let item of galleryItems$ | async" class="pixel-card"> 
+      
+      <div class="card-header">
+        {{ item.nombre | uppercase }}
+      </div>
+      
+      <img [src]="item.imagen" [alt]="item.nombre" class="card-image">
+
+      <div class="card-content">
+        <h2>{{ item.nombre }}</h2>
+        <p>{{ item.info }}</p>
+      </div>
+
+      <div class="card-footer">
+        <button class="pixel-button" (click)="openDetailModal(item)">Ver Detalles</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-gallery-detail 
+  *ngIf="selectedItem" 
+  [item]="selectedItem" 
+  (close)="closeDetailModal()">
+</app-gallery-detail>

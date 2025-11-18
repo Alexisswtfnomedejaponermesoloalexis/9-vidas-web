@@ -1,0 +1,80 @@
+/* src/app/components/contact/contact.component.css */
+
+.contact-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-container h1 {
+  color: #ff9900;
+  margin-bottom: 30px;
+}
+
+.form-panel {
+  max-width: 700px;
+  margin: 0 auto; 
+  text-align: left; 
+}
+
+.intro-text {
+  color: #ccc;
+  margin-bottom: 25px;
+  border-bottom: 2px dashed #4a4a58;
+  padding-bottom: 20px;
+  text-align: justify;
+  font-family: 'VT323', Courier, monospace !important;
+  font-size: 1.6em;
+  line-height: 1.4;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Reglas de 'label' combinadas */
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: 'VT323', Courier, monospace !important;
+  font-size: 1.5em;
+  color: #D97D55; /* Tu color óxido de la paleta */
+}
+
+/* Reglas de 'input/textarea' combinadas */
+input[type="text"], 
+input[type="email"], 
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'VT323', Courier, monospace !important;
+  font-size: 1.4em;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Reglas de 'error-message' combinadas */
+.error-message {
+  color: #ff4d4d; /* Mantenemos el color rojo de error */
+  margin-top: 5px;
+  font-family: 'VT323', Courier, monospace !important;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.submit-group {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-button {
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #4a4a58;
+    color: #ccc;
+}
