@@ -2,14 +2,21 @@
 
 .gallery-container {
   padding: 20px;
+  margin-top: 40px; 
 }
 
 .gallery-container h1 {
-  color: #ff9900; /* Título naranja */
-  margin-bottom: 30px;
+  color: #ff9900; 
+  margin-bottom: 50px; /* Más espacio debajo del título */
   text-align: center;
-  border-bottom: 4px solid #4a4a58; /* Línea de división */
-  padding-bottom: 10px;
+  border-bottom: 4px solid #4a4a58; 
+  padding-bottom: 20px;
+  
+  /* AÑADIMOS ESTO: Para que las líneas de texto no se peguen entre sí */
+  line-height: 1.5; 
+  
+  /* Opcional: Si el texto es muy grande, puedes ajustarlo un poco */
+  font-size: 2em; 
 }
 
 .cards-grid {

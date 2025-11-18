@@ -2,55 +2,62 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // <-- Necesario
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+// 1. IMPORTA LAS HERRAMIENTAS DE FIRESTORE
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  // Asegúrate de importar ReactiveFormsModule y CommonModule
-  imports: [CommonModule, ReactiveFormsModule], 
-  templateUrl: './contact.html',
-  styleUrl: './contact.css'
+  imports: [CommonModule, ReactiveFormsModule, FormsModule], 
+  templateUrl: './contact.html', // Asegúrate que este nombre coincida con tu archivo
+  styleUrls: ['./contact.css']   // Asegúrate que este nombre coincida con tu archivo
 })
-export class Contact implements OnInit {
+export class Contact implements OnInit { // <-- Nombre actualizado
   
   contactForm!: FormGroup;
-  isSubmitting: boolean = false; // Para deshabilitar el botón durante el envío
+  isSubmitting: boolean = false;
 
-  // Inyectamos FormBuilder
-  constructor(private fb: FormBuilder) {}
+  // 2. INYECTA FIRESTORE EN EL CONSTRUCTOR
+  constructor(
+    private fb: FormBuilder,
+    private firestore: Firestore // <-- Inyección necesaria
+  ) {}
 
   ngOnInit(): void {
-    // Inicialización del formulario con validaciones
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]], // Valida formato de correo
-      problem: ['', [Validators.required, Validators.minLength(20)]] // Detalle del problema
+      email: ['', [Validators.required, Validators.email]], 
+      problem: ['', [Validators.required, Validators.minLength(20)]] 
     });
   }
 
-  onSubmit() {
+  // 3. LÓGICA REAL DE ENVÍO A FIREBASE
+  async onSubmit() {
     if (this.contactForm.valid) {
-      this.isSubmitting = true;
+      this.isSubmitting = true; // Bloquea el botón
       const formData = this.contactForm.value;
       
-      console.log('Reporte de Bug listo para enviar:', formData);
-      
-      // *** Lógica de Backend (Simulada) ***
-      // En un entorno real, aquí se haría una llamada a un servicio
-      // de backend (ej: Express, PHP, Firebase Function) que a su vez
-      // utiliza una librería de envío de correo (ej: Nodemailer).
-
-      setTimeout(() => {
-        this.isSubmitting = false;
-        alert(`¡Reporte enviado! Nos contactaremos a ${formData.email} en breve.`);
-        // Resetear el formulario y los estados
-        this.contactForm.reset();
-        this.contactForm.get('name')?.setValue(''); 
-        this.contactForm.get('email')?.setValue(''); 
-        this.contactForm.get('problem')?.setValue(''); 
+      try {
+        // Apunta a la colección 'bug_reports' (privada)
+        const reportsCollection = collection(this.firestore, 'bug_reports');
         
-      }, 2000); // Simulación de espera de 2 segundos
+        // Guarda los datos
+        await addDoc(reportsCollection, formData);
+
+        // Éxito
+        alert(`¡Reporte enviado! Nos contactaremos a ${formData.email} en breve.`);
+        
+        // Resetea el formulario
+        this.contactForm.reset();
+
+      } catch (e) {
+        console.error('Error al enviar reporte:', e);
+        alert('Hubo un error al enviar el reporte. Intenta nuevamente.');
+      } finally {
+        this.isSubmitting = false; // Desbloquea el botón
+      }
       
     } else {
       alert('Por favor, completa correctamente todos los campos marcados.');
@@ -58,7 +65,6 @@ export class Contact implements OnInit {
     }
   }
 
-  // Función de utilidad para verificar si un campo tiene errores
   isInvalid(controlName: string): boolean {
     const control = this.contactForm.get(controlName);
     return !!(control && control.invalid && (control.dirty || control.touched));

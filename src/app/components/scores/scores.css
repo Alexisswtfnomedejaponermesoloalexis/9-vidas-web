@@ -1,32 +1,39 @@
 /* src/app/components/scores/scores.component.css */
 
+
 .scores-container {
   padding: 20px;
-  text-align: center; /* Centra elementos inline-block dentro de este contenedor */
+  text-align: center; 
+  /* AÑADIMOS ESTO: Margen superior para que el título no quede debajo del navbar */
+  margin-top: 40px; 
 }
 
-/* Título y línea de división centrada */
 .scores-container h1 {
   color: #ff9900;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  text-align: center; 
+  margin-bottom: 30px; /* Un poco más de margen inferior para separar del tablero */
+  padding-bottom: 10px; /* Espacio entre el texto y la línea de abajo */
+  text-align: center;
   text-transform: uppercase;
-  position: relative; 
+  position: relative;
+  
+  /* AÑADIMOS ESTO: Asegura que si el título se rompe en dos líneas, haya espacio */
+  line-height: 1.5; 
+  /* Opcional: Si sigue siendo muy grande, puedes reducir un poco el font-size */
+  font-size: 2em; 
 }
 
-/* Línea naranja centrada debajo del título */
+/* El pseudo-elemento ::after para la línea debajo del título debería estar bien */
 .scores-container h1::after {
   content: '';
   display: block;
-  width: 30%; 
+  width: 30%;
   height: 4px;
   background-color: #ff9900;
-  margin: 0 auto; 
-  position: absolute;
+  margin: 0 auto;
+  position: absolute; /* Mantenemos el absolute */
   left: 0;
   right: 0;
-  bottom: 0; 
+  bottom: 0;
 }
 
 /* El panel que contiene la tabla */

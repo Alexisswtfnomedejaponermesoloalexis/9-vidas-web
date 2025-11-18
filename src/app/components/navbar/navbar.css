@@ -52,3 +52,42 @@
   color: #ff9900; /* Color naranja al pasar el ratón o estar activo */
   border-bottom: 4px solid #ff9900; /* Línea de color naranja para la pestaña activa */
 }
+/* El estilo del gato */
+/* ... tus estilos anteriores ... */
+
+/* El estilo del gato */
+.walking-cat {
+  position: absolute; /* Flota sobre la barra */
+  bottom: 0px;        /* Pegado al piso de la barra */
+  left: -50px;        /* Empieza a la izquierda, fuera de vista */
+  height: 100px;       /* Ajusta este tamaño si se ve muy grande o chico */
+  width: auto;
+  pointer-events: none; /* Para que no estorbe los clicks */
+  image-rendering: pixelated; /* Mantiene el estilo pixelado */
+  z-index: 10;
+
+  /* La animación: dura 20 segundos y se repite por siempre */
+  animation: walk 20s linear infinite;
+}
+
+/* La animación de caminata */
+@keyframes walk {
+  0% {
+    left: -50px;
+    transform: scaleX(1); /* Mirando a la derecha */
+  }
+  49% {
+    transform: scaleX(1);
+  }
+  50% {
+    left: 100%; /* Llega al final */
+    transform: scaleX(-1); /* Se voltea */
+  }
+  99% {
+    transform: scaleX(-1);
+  }
+  100% {
+    left: -50px; /* Regresa al inicio */
+    transform: scaleX(1);
+  }
+}
