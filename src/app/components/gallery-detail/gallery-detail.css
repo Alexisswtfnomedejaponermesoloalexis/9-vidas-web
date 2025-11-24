@@ -22,11 +22,13 @@
 
 .modal-panel .card-image {
   max-width: 100%; 
-  height: auto;    
+  height: 250px; 
+  object-fit: contain;   
   display: block;  
-  margin: 0 auto 15px auto; 
-  border-bottom: 3px solid #ff9900;
+  background-color: #1a1a2a;
+  border-bottom: 4px solid #ff9900;
   image-rendering: pixelated; 
+  margin-bottom: 20px;
 }
 
 

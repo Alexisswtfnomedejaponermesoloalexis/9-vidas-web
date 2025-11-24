@@ -52,9 +52,10 @@
 .card-image {
   width: 100%;
   height: 200px; /* Altura fija para todas las imágenes */
-  object-fit: cover; /* Asegura que la imagen cubra el área */
+  object-fit: contain; /* Asegura que la imagen cubra el área */
   display: block;
-  border-bottom: 3px solid #ff9900;
+  background-color: #1a1a2a; 
+  border-bottom: 4px solid #ff9900;
   image-rendering: pixelated; /* ¡Clave para mantener el look pixelado si las imágenes lo soportan! */
 }
 
@@ -77,4 +78,30 @@
   padding: 15px;
   text-align: right;
   border-top: 3px solid #3b3b4a;
+}
+/* ... tus estilos anteriores ... */
+
+/* Nuevo contenedor para el botón de volver */
+.back-button-container {
+  width: 100%;
+  text-align: left; /* Esto asegura que el botón se vaya a la izquierda */
+  margin-bottom: 20px; /* Un poco de espacio antes del título */
+}
+/* --- ESTILOS ESPECÍFICOS PARA EL PROTAGONISTA --- */
+
+.protagonist-card .card-content {
+  text-align: center; /* Centra el título y la descripción */
+}
+
+.protagonist-card .card-footer {
+  /* Centra el botón */
+  display: flex;
+  justify-content: center; 
+  text-align: center;
+}
+
+/* Opcional: Si quieres que el título del prota sea un poco más grande */
+.protagonist-card h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
 }

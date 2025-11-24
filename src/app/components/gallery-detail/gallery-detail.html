@@ -1,7 +1,6 @@
 <div class="pixel-panel modal-panel">
     <!-- Muestra la imagen del item -->
-    <img [src]="item.imagen" [alt]="item.nombre" class="card-image">
-
+<img [src]="'assets/galeria/' + item.imagen" [alt]="item.nombre" class="card-image">
     <div class="card-content">
       <h2>{{ item.nombre | uppercase }}</h2> <!-- Muestra el nombre en mayúsculas -->
       <p>{{ item.info }}</p> <!-- Muestra información general del item -->

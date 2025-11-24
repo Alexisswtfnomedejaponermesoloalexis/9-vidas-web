@@ -1,24 +1,55 @@
 <div class="gallery-container">
-  <h1>Galería de Lore y Personajes de 9 VIDAS</h1>
+  
+  <div *ngIf="!selectedCategory">
+    <h1>| Categorías | <br>| 9 VIDAS |</h1>
 
-  <div class="cards-grid">
+    <div class="cards-grid">
+      <div class="pixel-card category-card" (click)="selectCategory('Protagonista')">
+        <div class="card-header"  style="background-color: #6FA4AF;">PROTAGONISTA</div>
+        <div class="card-content"><p>Conoce al héroe.</p></div>
+      </div>
+      <div class="pixel-card category-card" (click)="selectCategory('Enemigo')">
+        <div class="card-header" style="background-color: #c70000;">ENEMIGOS</div>
+        <div class="card-content"><p>Bestias y criaturas.</p></div>
+      </div>
+      <div class="pixel-card category-card" (click)="selectCategory('Escenario')">
+        <div class="card-header" style="background-color: #009900;">ESCENARIOS</div>
+        <div class="card-content"><p>Los lugares.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedCategory">
+    <div class="back-button-container">
     
-    <div *ngFor="let item of galleryItems$ | async" class="pixel-card"> 
-      
-      <div class="card-header">
-        {{ item.nombre | uppercase }}
-      </div>
-      
-      <img [src]="item.imagen" [alt]="item.nombre" class="card-image">
+    <button class="pixel-button back-button" (click)="resetCategory()">
+      < Volver a Categorías
+    </button>
+    </div>
 
-      <div class="card-content">
-        <h2>{{ item.nombre }}</h2>
-        <p>{{ item.info }}</p>
-      </div>
+    <h1>| {{ selectedCategory }}s |</h1>
 
-      <div class="card-footer">
-        <button class="pixel-button" (click)="openDetailModal(item)">Ver Detalles</button>
-      </div>
+    <div class="cards-grid">
+      <ng-container *ngFor="let item of galleryItems$ | async">
+        
+        <div *ngIf="item.category === selectedCategory" 
+        class="pixel-card"
+        [class.protagonist-card]="item.category === 'Protagonista'">
+          <div class="card-header">{{ item.nombre | uppercase }}</div>
+          
+          <img [src]="'assets/galeria/' + item.imagen" [alt]="item.nombre" class="card-image">
+
+          <div class="card-content">
+            <h2>{{ item.nombre }}</h2>
+            <p>{{ item.info }}</p>
+          </div>
+
+          <div class="card-footer">
+            <button class="pixel-button" (click)="openDetailModal(item)">Ver Detalles</button>
+          </div>
+        </div>
+
+      </ng-container>
     </div>
   </div>
 
