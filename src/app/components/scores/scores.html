@@ -1,26 +1,29 @@
 <div class="scores-container">
   <h1>MARCADORES DE LEYENDA (9 VIDAS)</h1>
   
-  <div class="leaderboard-panel">
-    <table>
-      <thead>
-        <tr>
-          <th>RANK</th>
-          <th>NOMBRE</th>
-          <th>PUNTAJE</th>
-          <th>TIEMPO</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let score of scores" [ngClass]="{'top-rank': score.rank <= 3}">
-          <td class="rank-column">{{ score.rank }}</td>
-          <td class="name-column">{{ score.name }}</td>
-          <td class="score-column">{{ score.score | number }}</td>
-          <td class="time-column">{{ score.time }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="table-wrapper">
+    <div class="leaderboard-panel">
+      <table>
+        <thead>
+          <tr>
+            <th>RANK</th>
+            <th>USUARIO</th>
+            <th>SCORE</th>
+            <th>ENEMIGOS</th>
+            <th>NIVEL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of scores$ | async; let i = index" [ngClass]="{'top-rank': i < 3}">
+            <td class="rank-column">{{ i + 1 }}</td>
+            <td class="name-column">{{ s.usuario }}</td>
+            <td class="score-column">{{ s.score | number }}</td> <td class="time-column">{{ s.enemigos }}</td>
+            <td class="time-column">{{ s.nivel }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <p class="data-source-note">Datos de muestra. Próximamente: Conexión en tiempo real con la base de datos del juego.</p>
+  <p class="data-source-note">Datos en tiempo real desde Firebase Realtime Database.</p>
 </div>

@@ -3,11 +3,11 @@ import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Observable } from 'rxjs'; 
 import { GalleryService, GalleryItem } from '../../services/gallery'; 
 import { GalleryDetailComponent } from '../../components/gallery-detail/gallery-detail'; 
-
+import { ScenarioReviewsComponent } from '../../components/scenario-reviews/scenario-reviews';
 @Component({
   selector: 'app-gallery', 
   standalone: true, 
-  imports: [CommonModule, GalleryDetailComponent, UpperCasePipe], 
+  imports: [CommonModule, GalleryDetailComponent, UpperCasePipe,ScenarioReviewsComponent], 
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.css']
 })
@@ -18,6 +18,7 @@ export class GalleryComponent implements OnInit {
   
   // NUEVO: Para las categorías
   selectedCategory: string | null = null; 
+  public selectedScenarioForReviews: GalleryItem | null = null; // <--- VARIABLE
 
   constructor(private galleryService: GalleryService) { }
 
@@ -41,5 +42,12 @@ export class GalleryComponent implements OnInit {
 
   closeDetailModal() {
     this.selectedItem = null;
+  }
+  openReviewsModal(item: GalleryItem) {
+    this.selectedScenarioForReviews = item;
+  }
+
+  closeReviewsModal() {
+    this.selectedScenarioForReviews = null;
   }
 }

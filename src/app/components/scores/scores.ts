@@ -1,34 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-interface ScoreEntry {
-  rank: number;
-  name: string;
-  score: number;
-  time: string;
-}
+import { CommonModule } from '@angular/common'; // Necesario para el pipe | async
+import { Observable } from 'rxjs';
+import { ScoresService, ScoreEntry } from '../../services/scores';
 
 @Component({
   selector: 'app-scores',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './scores.html',
-  styleUrl: './scores.css',
+  styleUrls: ['./scores.css']
 })
-export class Scores implements OnInit{
-scores: ScoreEntry[] = [
-    { rank: 1, name: 'NARANJOSO_GOD', score: 99999, time: '30:00' },
-    { rank: 2, name: 'ElMishi', score: 85210, time: '28:45' },
-    { rank: 3, name: 'PixelPro', score: 77777, time: '25:12' },
-    { rank: 4, name: 'GatoPardo', score: 65432, time: '22:05' },
-    { rank: 5, name: 'BugHunter', score: 50111, time: '18:59' },
-    { rank: 6, name: 'Player69', score: 45000, time: '17:30' },
-    { rank: 7, name: 'LaVarnilla', score: 33200, time: '15:00' },
-  ];
+export class ScoresComponent implements OnInit {
 
-  constructor() { }
+  // Variable que recibirá los datos en vivo
+  scores$!: Observable<ScoreEntry[]>;
 
-  ngOnInit(): void {
-    // Aquí es donde en el futuro se haría la llamada HTTP
-    // this.fetchScoresFromApi(); 
+  constructor(private scoresService: ScoresService) { }
+
+  ngOnInit() {
+    // Conectamos la variable al servicio
+    this.scores$ = this.scoresService.getTopScores();
   }
 }

@@ -7,6 +7,7 @@ import { importProvidersFrom } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
 
  const firebaseConfig = {
     apiKey: "AIzaSyAUBTElqmaIPlojdx5BM8COmV4bMPTpRQE",
@@ -24,6 +25,7 @@ export const appConfig: ApplicationConfig = {
 
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    provideDatabase(() => getDatabase())
   ]
 };

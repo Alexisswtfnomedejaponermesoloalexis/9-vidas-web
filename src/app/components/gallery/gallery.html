@@ -1,23 +1,29 @@
 <div class="gallery-container">
+  <br>
+  <br>
+  <br>
+  
+  
   
   <div *ngIf="!selectedCategory">
-    <h1>| Categorías | <br>| 9 VIDAS |</h1>
+    <h1> GALERÍA  <br> 9 VIDAS </h1>
 
     <div class="cards-grid">
       <div class="pixel-card category-card" (click)="selectCategory('Protagonista')">
         <div class="card-header"  style="background-color: #6FA4AF;">PROTAGONISTA</div>
-        <div class="card-content"><p>Conoce al héroe.</p></div>
+        <div class="card-content"><p>Conoce al héroe de está historia.</p></div>
       </div>
       <div class="pixel-card category-card" (click)="selectCategory('Enemigo')">
         <div class="card-header" style="background-color: #c70000;">ENEMIGOS</div>
-        <div class="card-content"><p>Bestias y criaturas.</p></div>
+        <div class="card-content"><p>Bestias y criaturas formidables.</p></div>
       </div>
       <div class="pixel-card category-card" (click)="selectCategory('Escenario')">
         <div class="card-header" style="background-color: #009900;">ESCENARIOS</div>
-        <div class="card-content"><p>Los lugares.</p></div>
+        <div class="card-content"><p>Los lugares míticos por explorar.</p></div>
       </div>
     </div>
   </div>
+  
 
   <div *ngIf="selectedCategory">
     <div class="back-button-container">
@@ -45,9 +51,21 @@
           </div>
 
           <div class="card-footer">
-            <button class="pixel-button" (click)="openDetailModal(item)">Ver Detalles</button>
-          </div>
+  <button class="pixel-button" (click)="openDetailModal(item)">Ver Detalles</button>
+  
+  <button *ngIf="item.category === 'Escenario'" 
+          class="pixel-button review-btn" 
+          (click)="openReviewsModal(item)">
+    Ver Reseñas
+  </button>
+</div>
+          
         </div>
+        <app-scenario-reviews
+  *ngIf="selectedScenarioForReviews"
+  [scenarioName]="selectedScenarioForReviews.nombre"
+  (close)="closeReviewsModal()">
+</app-scenario-reviews>
 
       </ng-container>
     </div>

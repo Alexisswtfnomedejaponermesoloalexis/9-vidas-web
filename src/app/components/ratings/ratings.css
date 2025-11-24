@@ -112,3 +112,37 @@ audio {
   height: 40px;
   margin-top: 5px;
 }
+/* src/app/components/ratings/ratings.component.css */
+
+/* ... tus estilos anteriores ... */
+
+.scenario-preview-card {
+  background-color: #1a1a2a;
+  border: 2px solid #ff9900;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  /* IMPORTANTE: Asegúrate de que no tenga un width fijo que lo rompa */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.preview-image {
+  width: 100%;
+  /* ESTO ES LA CLAVE PARA QUE NO SE VEA GIGANTE */
+  height: 200px; /* Altura máxima fija */
+  object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformar */
+  /* O usa 'contain' si prefieres ver la imagen completa aunque queden bordes negros */
+  /* object-fit: contain; */
+  
+  image-rendering: pixelated;
+  border-bottom: 2px solid #ff9900;
+  margin-bottom: 5px;
+}
+
+.scenario-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8em;
+  color: #ff9900;
+  margin: 0;
+}
