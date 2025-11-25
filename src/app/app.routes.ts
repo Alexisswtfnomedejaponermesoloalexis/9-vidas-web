@@ -12,6 +12,5 @@ export const routes: Routes = [
   { path: 'ratings', component: RatingsComponent },
   { path: 'contact', component: Contact },
   { path: 'about', component: AboutComponent },
-  // Opcional: Ruta 404 para URLs que no existen
   { path: '**', component: GalleryComponent },
 ];

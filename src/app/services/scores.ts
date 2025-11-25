@@ -18,19 +18,12 @@ export class ScoresService {
   constructor(private db: Database) { }
 
   getTopScores(): Observable<ScoreEntry[]> {
-    // 1. Referencia a la ruta "scores" en Realtime DB
     const scoresRef = ref(this.db, 'scores');
     
-    // 2. Creamos la Query:
-    //    - Ordenar por "score" (orderByChild)
-    //    - Traer los últimos 10 (limitToLast)
     const topScoresQuery = query(scoresRef, orderByChild('score'), limitToLast(10));
 
-    // 3. Obtenemos la lista y la transformamos
     return listVal<ScoreEntry>(topScoresQuery).pipe(
       map(scores => {
-        // Firebase devuelve los datos ordenados de menor a mayor (ascendente).
-        // Nosotros queremos el puntaje más alto primero, así que invertimos el array.
         return scores ? scores.reverse() : [];
       })
     );

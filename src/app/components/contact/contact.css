@@ -1,9 +1,7 @@
-/* src/app/components/contact/contact.component.css */
 
 .contact-container {
   padding: 20px;
   text-align: center;
-  /* Margen superior para el navbar */
   margin-top: 40px; 
 }
 
@@ -13,14 +11,12 @@
   line-height: 1.5;
 }
 
-/* --- ESTILO COMPACTO (Igual que Ratings) --- */
 .form-panel {
-  max-width: 450px; /* Reducido para ser compacto */
+  max-width: 450px; 
   margin: 0 auto; 
   text-align: left; 
-  padding: 30px;    /* Más espacio interno */
+  padding: 30px;    
   
-  /* Fondo y bordes pixel art */
   background-color: #2b2b3a;
   border: 4px solid #ff9900;
   box-shadow: 8px 8px 0px 0px #1a1a2a;
@@ -33,7 +29,7 @@
   padding-bottom: 20px;
   text-align: justify;
   font-family: 'VT323', Courier, monospace !important;
-  font-size: 1.4em; /* Un poco más pequeño para que quepa mejor */
+  font-size: 1.4em; 
   line-height: 1.4;
 }
 
@@ -45,12 +41,11 @@
   font-family: 'VT323', Courier, monospace !important;
   font-size: 1.5em;
   font-weight: bold;
-  color: #ffc72c; /* Dorado para mantener consistencia con Ratings */
+  color: #ffc72c; 
   display: block;
   margin-bottom: 8px;
 }
 
-/* Inputs y Textarea con fondo oscuro */
 input[type="text"], 
 input[type="email"], 
 textarea {
@@ -60,11 +55,10 @@ textarea {
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
-  background-color: #1a1a2a; /* Fondo oscuro igual que en Ratings */
-  border: 2px solid #ff9900; /* Borde naranja */
+  background-color: #1a1a2a; 
+  border: 2px solid #ff9900; 
 }
 
-/* Mensajes de error */
 .error-message {
   color: #ff4d4d; 
   margin-top: 5px;
@@ -78,20 +72,18 @@ textarea {
   margin-top: 30px;
 }
 
-/* Botón de Enviar (Estilo igualado) */
 .submit-button {
-  color: #000000 !important; /* <-- Letra NEGRA */
+  color: #000000 !important; 
   font-family: 'Press Start 2P', monospace;
   font-size: 1em;
   width: 100%;
   padding: 15px;
   margin-top: 20px;
-  /* (El background-color viene de global.css) */
 }
 
 .submit-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     background-color: #4a4a58;
-    color: #ccc !important; /* El texto deshabilitado puede ser gris */
+    color: #ccc !important; 
 }

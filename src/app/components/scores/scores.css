@@ -1,28 +1,23 @@
-/* src/app/components/scores/scores.component.css */
 
 
 .scores-container {
   padding: 20px;
   text-align: center; 
-  /* AÑADIMOS ESTO: Margen superior para que el título no quede debajo del navbar */
   margin-top: 40px; 
 }
 
 .scores-container h1 {
   color: #ff9900;
-  margin-bottom: 30px; /* Un poco más de margen inferior para separar del tablero */
-  padding-bottom: 10px; /* Espacio entre el texto y la línea de abajo */
+  margin-bottom: 30px; 
+  padding-bottom: 10px; 
   text-align: center;
   text-transform: uppercase;
   position: relative;
   
-  /* AÑADIMOS ESTO: Asegura que si el título se rompe en dos líneas, haya espacio */
   line-height: 1.5; 
-  /* Opcional: Si sigue siendo muy grande, puedes reducir un poco el font-size */
   font-size: 2em; 
 }
 
-/* El pseudo-elemento ::after para la línea debajo del título debería estar bien */
 .scores-container h1::after {
   content: '';
   display: block;
@@ -30,13 +25,12 @@
   height: 4px;
   background-color: #ff9900;
   margin: 0 auto;
-  position: absolute; /* Mantenemos el absolute */
+  position: absolute; 
   left: 0;
   right: 0;
   bottom: 0;
 }
 
-/* El panel que contiene la tabla */
 .leaderboard-panel {
   display: inline-block; 
   background-color: #2b2b3a; 
@@ -53,7 +47,6 @@ table {
   color: #fff;
 }
 
-/* Cabecera de la tabla */
 thead th {
   background-color: #ff9900; 
   color: #1a1a2a; 
@@ -62,7 +55,6 @@ thead th {
   border: 2px solid #1a1a2a; 
 }
 
-/* Filas del cuerpo */
 tbody tr {
   border-bottom: 1px dashed #4a4a58; 
 }
@@ -75,7 +67,6 @@ tbody td {
   padding: 10px 15px;
 }
 
-/* Resaltar las primeras posiciones */
 .top-rank {
   color: #ffc72c; 
   font-weight: bold;
@@ -85,7 +76,6 @@ tbody td {
   width: 50px;
 }
 
-/* Estilo para la nota inferior (ya centrado) */
 .data-source-note {
   margin-top: 0; 
   font-size: 0.8em;

@@ -28,7 +28,6 @@ export class RatingsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // 1. Cargar escenarios
     this.galleryService.getScenariosOnly().subscribe(res => {
       this.scenariosList = res;
     });
@@ -41,7 +40,6 @@ export class RatingsComponent implements OnInit {
   }
 
   onScenarioChange(event: any) {
-    // En web leemos el valor del control
     this.selectedScenario = this.ratingForm.get('scenario')?.value;
   }
 
@@ -50,7 +48,6 @@ export class RatingsComponent implements OnInit {
     this.ratingForm.get('rating')?.setValue(rating);
   }
   
-  // (Métodos starEnter, starLeave, getStarColor igual que antes)
   starEnter(r: number) { this.hoverRating = r; }
   starLeave() { this.hoverRating = 0; }
   getStarColor(s: number) { return s <= (this.hoverRating || this.currentRating) ? '#ffc72c' : '#4a4a58'; }

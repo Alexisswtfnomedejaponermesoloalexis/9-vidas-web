@@ -14,11 +14,10 @@ import { ScenarioReviewsComponent } from '../../components/scenario-reviews/scen
 export class GalleryComponent implements OnInit {
 
   public galleryItems$!: Observable<GalleryItem[]>;
-  public selectedItem: GalleryItem | null = null; // Para el Modal
+  public selectedItem: GalleryItem | null = null; 
   
-  // NUEVO: Para las categorías
   selectedCategory: string | null = null; 
-  public selectedScenarioForReviews: GalleryItem | null = null; // <--- VARIABLE
+  public selectedScenarioForReviews: GalleryItem | null = null; 
 
   constructor(private galleryService: GalleryService) { }
 
@@ -26,7 +25,6 @@ export class GalleryComponent implements OnInit {
     this.galleryItems$ = this.galleryService.getGalleryItems();
   }
 
-  // Lógica de Categorías
   selectCategory(category: string) {
     this.selectedCategory = category;
   }
@@ -35,7 +33,6 @@ export class GalleryComponent implements OnInit {
     this.selectedCategory = null;
   }
 
-  // Lógica del Modal
   openDetailModal(item: GalleryItem) {
     this.selectedItem = item;
   }

@@ -10,8 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class AboutComponent {
 
-  // Array con la información de tu equipo
-  // (Asegúrate de que los nombres de las imágenes coincidan con lo que tienes en assets/imagenes/)
   teamMembers = [
     {
       name: ' ISHHHH STUDIOS',  

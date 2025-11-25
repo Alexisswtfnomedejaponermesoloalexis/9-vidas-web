@@ -1,7 +1,7 @@
 .about-container {
   padding: 20px;
   text-align: center;
-  margin-top: 40px; /* Espacio para el navbar */
+  margin-top: 40px; 
 }
 
 .about-container h1 {
@@ -9,7 +9,6 @@
   margin-bottom: 30px;
   line-height: 1.5;
   text-align: center;
-  /* La fuente se hereda de global.css, pero aseguramos */
   font-family: 'Press Start 2P', monospace;
 }
 
@@ -19,7 +18,6 @@
   gap: 30px;
 }
 
-/* Estilo específico para la tarjeta de miembro */
 .member-card {
   background-color: #2b2b3a;
   border: 5px solid #ff9900;
@@ -28,7 +26,7 @@
 }
 
 .member-card:hover {
-  transform: translateY(-5px); /* Efecto hover para web */
+  transform: translateY(-5px); 
 }
 
 .card-header {
@@ -40,7 +38,6 @@
   font-weight: bold;
 }
 
-/* Ajuste de la imagen del miembro */
 .member-image {
   width: 100%;
   height: 250px; 
@@ -50,7 +47,6 @@
   display: block;
 }
 
-/* Ajustes de texto */
 .card-content {
   padding: 15px;
 }

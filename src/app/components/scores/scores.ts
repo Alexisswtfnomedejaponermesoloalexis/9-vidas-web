@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Necesario para el pipe | async
+import { CommonModule } from '@angular/common'; 
 import { Observable } from 'rxjs';
 import { ScoresService, ScoreEntry } from '../../services/scores';
 
@@ -12,13 +12,11 @@ import { ScoresService, ScoreEntry } from '../../services/scores';
 })
 export class ScoresComponent implements OnInit {
 
-  // Variable que recibirá los datos en vivo
   scores$!: Observable<ScoreEntry[]>;
 
   constructor(private scoresService: ScoresService) { }
 
   ngOnInit() {
-    // Conectamos la variable al servicio
     this.scores$ = this.scoresService.getTopScores();
   }
 }

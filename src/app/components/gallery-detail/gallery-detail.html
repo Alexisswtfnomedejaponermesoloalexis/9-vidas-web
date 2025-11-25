@@ -1,17 +1,16 @@
 <div class="pixel-panel modal-panel">
-    <!-- Muestra la imagen del item -->
 <img [src]="'assets/galeria/' + item.imagen" [alt]="item.nombre" class="card-image">
     <div class="card-content">
-      <h2>{{ item.nombre | uppercase }}</h2> <!-- Muestra el nombre en mayúsculas -->
-      <p>{{ item.info }}</p> <!-- Muestra información general del item -->
+      <h2>{{ item.nombre | uppercase }}</h2>
+      <p>{{ item.info }}</p> 
 
-      <hr class="pixel-divider"> <!-- Línea divisoria decorativa -->
+      <hr class="pixel-divider"> 
 
-      <h2>HISTORIA</h2> <!-- Título de la sección de historia -->
-      <p>{{ item.history }}</p> <!-- Muestra el texto de la historia -->
+      <h2>HISTORIA</h2> 
+      <p>{{ item.history }}</p> 
 
       <div class="card-footer">
-        <button class="pixel-button" (click)="closeModal()"> <!-- Botón para cerrar el modal -->
+        <button class="pixel-button" (click)="closeModal()"> 
           CERRAR
         </button>
       </div>

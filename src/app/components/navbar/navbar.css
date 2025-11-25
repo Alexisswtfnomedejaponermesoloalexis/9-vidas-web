@@ -1,18 +1,17 @@
-/* src/app/components/navbar/navbar.component.css */
 
 .main-nav {
-  position: fixed; /* Barra de navegación fija en la parte superior */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: #1a1a2a; /* Fondo muy oscuro, casi negro */
-  border-bottom: 4px solid #ff9900; /* Borde naranja simulando la división pixelada */
+  background-color: #1a1a2a; 
+  border-bottom: 4px solid #ff9900; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  z-index: 1000; 
 }
 
 .logo {
@@ -20,17 +19,16 @@
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  color: #ff9900; /* Logo en el color del gatito */
+  color: #ff9900;
   letter-spacing: 2px;
 }
 
-/* Puedes añadir una imagen del gatito aquí */
 .logo span {
   margin-left: 10px;
 }
 
 .main-nav ul {
-  list-style: none; /* Quita los puntos de la lista */
+  list-style: none;
   display: flex;
 }
 
@@ -41,53 +39,47 @@
 .main-nav ul li a {
   text-decoration: none;
   color: #fff;
-  padding: 15px 10px; /* Área de clic más grande */
+  padding: 15px 10px; 
   transition: color 0.1s;
-  /* Efecto de 'botón' simple */
   border-bottom: 4px solid transparent; 
 }
 
 .main-nav ul li a:hover,
 .main-nav ul li a.active {
-  color: #ff9900; /* Color naranja al pasar el ratón o estar activo */
-  border-bottom: 4px solid #ff9900; /* Línea de color naranja para la pestaña activa */
+  color: #ff9900; 
+  border-bottom: 4px solid #ff9900; 
 }
-/* El estilo del gato */
-/* ... tus estilos anteriores ... */
 
-/* El estilo del gato */
 .walking-cat {
-  position: absolute; /* Flota sobre la barra */
-  bottom: 0px;        /* Pegado al piso de la barra */
-  left: -50px;        /* Empieza a la izquierda, fuera de vista */
-  height: 100px;       /* Ajusta este tamaño si se ve muy grande o chico */
+  position: absolute; 
+  bottom: 0px;        
+  left: -50px;       
+  height: 100px;       
   width: auto;
-  pointer-events: none; /* Para que no estorbe los clicks */
-  image-rendering: pixelated; /* Mantiene el estilo pixelado */
+  pointer-events: none; 
+  image-rendering: pixelated; 
   z-index: 10;
 
-  /* La animación: dura 20 segundos y se repite por siempre */
   animation: walk 20s linear infinite;
 }
 
-/* La animación de caminata */
 @keyframes walk {
   0% {
     left: -50px;
-    transform: scaleX(1); /* Mirando a la derecha */
+    transform: scaleX(1); 
   }
   49% {
     transform: scaleX(1);
   }
   50% {
-    left: 100%; /* Llega al final */
-    transform: scaleX(-1); /* Se voltea */
+    left: 100%; 
+    transform: scaleX(-1); 
   }
   99% {
     transform: scaleX(-1);
   }
   100% {
-    left: -50px; /* Regresa al inicio */
+    left: -50px; 
     transform: scaleX(1);
   }
 }

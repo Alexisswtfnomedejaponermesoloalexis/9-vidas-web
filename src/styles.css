@@ -1,17 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-/* src/styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
-/* 1. Reset Básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 2. Fuente Pixel Art */
-/* Para usar una fuente pixel, tendrías que descargarla e importarla.
-   Por ahora, usaremos una fuente genérica de monoespacio para simular el look. */
 body {
   font-family: 'VT323', Courier, monospace;
   font-smooth: never;
@@ -19,18 +13,16 @@ body {
   background-color: #3b3b4a;
   color: #fff;
 }
-/* 3. Contenedor Principal (Para centrar el contenido, si es necesario) */
 .content-area {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* 4. Estilo de Botones (Coherencia visual) */
 button, .pixel-button {
-  background-color: #6FA4AF; /* Naranja del gatito */
+  background-color: #6FA4AF; 
   color: #3b3b4a;
-  border: 4px solid #1a1a2a; /* Borde oscuro para efecto pixelado */
+  border: 4px solid #1a1a2a; 
   padding: 10px 20px;
   cursor: pointer;
   font-family: inherit;
@@ -41,7 +33,7 @@ button, .pixel-button {
 }
 
 button:hover, .pixel-button:hover {
-  background-color: #ffb347; /* Naranja más claro al pasar el ratón */
+  background-color: #ffb347;
   border-color: #000;
 }
 h1,
